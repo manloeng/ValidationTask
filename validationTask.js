@@ -38,6 +38,8 @@ function validateInput() {
 		// console.log(this.parentNode);
 
 		// // console.dir(this.parentNode.appendChild(errMsg))
+
+		//still need to add change to removing the comments
 	}
 }
 
