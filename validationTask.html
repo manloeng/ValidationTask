@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +9,41 @@
   <link rel="stylesheet" href="validationTask.css">
   <script src="validationTask.js" defer></script>
 </head>
+
 <body>
-  <header><h1>Sign Up!</h1></header>
+  <header>
+    <h1>AIR CONDITIONER PICTURES!</h1>
+    <h2>Sign Up NOW!!!</h2>
+  </header>
 
   <form id="signUpForm">
-    <label>
-      username:
+    <label for="username">
+      Username:
     </label>
-    <input type="text" id="username"><br>
+    <input type="text" id="username" name='username'><br>
 
-    <label>
-      password:
+    <label for='firstname'>
+      First Name:
     </label>
-    <input type="text" id="password"><br>
-    
+    <input type="text" id="firstname" name="firstname"><br>
+    <label for="lastname">
+      Last Name:
+    </label>
+    <input type="text" id="lastname" name="lastname"><br>
+    <label for="dateOfBirth">
+      Date Of Birth:
+    </label>
+    <input type="date" id="dateOfBirth" name="dateOfBirth"><br>
+
     <button type="submit">Sign Up!</button>
   </form>
+  <figure>
+    <img
+      src="http://cdn.shopify.com/s/files/1/0066/7595/5769/products/1-newair-portable-air-conditioner-ac-14100h-hero_1024x1024.jpg?v=1563465476"
+      alt="toip of the range air conditioner">
+    <figcaption> For the cooldown!</figcaption>
+  </figure>
+
 </body>
+
 </html>
