@@ -17,23 +17,35 @@
   </header>
 
   <form id="signUpForm">
-    <label for="username">
-      Username:
-    </label>
-    <input type="text" id="username" name='username'><br>
 
-    <label for='firstname'>
-      First Name:
-    </label>
-    <input type="text" id="firstname" name="firstname"><br>
-    <label for="lastname">
-      Last Name:
-    </label>
-    <input type="text" id="lastname" name="lastname"><br>
-    <label for="dateOfBirth">
-      Date Of Birth:
-    </label>
-    <input type="date" id="dateOfBirth" name="dateOfBirth"><br>
+    <!-- added div tags so that we could append our error message -->
+    <div>
+      <label for="username">
+        Username:
+      </label>
+      <input type="text" id="username" name='username'><br>
+    </div>
+
+    <div>
+      <label for='firstname'>
+        First Name:
+      </label>
+      <input type="text" id="firstname" name="firstname"><br>
+    </div>
+
+    <div>
+      <label for="lastname">
+        Last Name:
+      </label>
+      <input type="text" id="lastname" name="lastname"><br>
+    </div>
+
+    <div>
+      <label for="dateOfBirth">
+        Date Of Birth:
+      </label>
+      <input type="date" id="dateOfBirth" name="dateOfBirth"><br>
+    </div>
 
     <button type="submit">Sign Up!</button>
   </form>
