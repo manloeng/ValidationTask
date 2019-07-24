@@ -4,42 +4,66 @@ const usernameElement = document.getElementById('username');
 const passwordElement = document.getElementById('password');
 
 function validateInput() {
-	//refactored the reg obj to take reg and msg
-	const refObj = {
-		username: {
-			reg: /[^a-z0-9\s-']/,
-			msg: 'Incorrect username input'
-		},
-		firstname: {
-			reg: /[^a-z]+/i,
-			msg: 'Incorrect firstname input'
-		},
-		lastname: {
-			reg: /[^a-z]+/i,
-			msg: 'Incorrect lastname input'
+	if (this.name === 'dateOfBirth') {
+		const currentDate = Date.now();
+		const newCurrentDate = new Date(currentDate);
+
+		const oneYear = 31556926000;
+		const eighteenYears = oneYear * 18;
+
+		const enteredDate = document.getElementById('dateOfBirth').value;
+		const splitDate = enteredDate.split('-');
+		const newEnteredDate = new Date(splitDate[0], splitDate[1] - 1, splitDate[2]);
+
+		if (newCurrentDate - newEnteredDate < eighteenYears) {
+			this.classList.add('invalid');
+			this.classList.remove('valid');
+			const errMsg = document.createElement('p');
+
+			errMsg.innerText = 'Invalid Date';
+			if (this.parentNode.lastChild.tagName !== 'P') {
+				this.parentNode.append(errMsg);
+			}
+		} else {
+			this.classList.remove('invalid');
+			this.classList.add('valid');
+
+			if (this.parentNode.lastChild.tagName === 'P') {
+				this.parentNode.lastChild.remove('p');
+			}
 		}
-	};
-
-	//refactored our check - refObj[this.id].reg.test(this.value) to read regex
-	if (!refObj[this.id].reg.test(this.value)) {
-		this.classList.remove('invalid');
-		this.classList.add('valid');
 	} else {
-		this.classList.remove('valid');
-		this.classList.add('invalid');
-		const errMsg = document.createElement('p');
+		const refObj = {
+			username: {
+				reg: /[^a-z0-9\s-']/,
+				msg: 'Incorrect username input'
+			},
+			firstname: {
+				reg: /[^a-z]+/i,
+				msg: 'Incorrect firstname input'
+			},
+			lastname: {
+				reg: /[^a-z]+/i,
+				msg: 'Incorrect lastname input'
+			}
+		};
 
-		// refactored 	errMsg.innerText = refObj[this.id] to read our newly created msg
-		errMsg.innerText = refObj[this.id].msg;
-		this.parentNode.append(errMsg);
+		if (!refObj[this.id].reg.test(this.value)) {
+			this.classList.remove('invalid');
+			this.classList.add('valid');
+			if (this.parentNode.lastChild.tagName === 'P') {
+				this.parentNode.lastChild.remove('p');
+			}
+		} else {
+			this.classList.remove('valid');
+			this.classList.add('invalid');
+			const errMsg = document.createElement('p');
 
-		// not needed anymore - was our previous test
-		// // this.parentNode.appendChild(errMsg);
-		// console.log(this.parentNode);
-
-		// // console.dir(this.parentNode.appendChild(errMsg))
-
-		//still need to add change to removing the comments
+			errMsg.innerText = refObj[this.id].msg;
+			if (this.parentNode.lastChild.tagName !== 'P') {
+				this.parentNode.append(errMsg);
+			}
+		}
 	}
 }
 
